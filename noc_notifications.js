@@ -39,8 +39,6 @@ ws.on('state', (ss) => {
 });
 ws.on('message', function message(ev) {
     var vrijeme = timestamp();
-
-    if (ev.match(/(Alert)/)) {
     var nmsg;
     var say;
     var cmd;
@@ -83,9 +81,7 @@ ws.on('message', function message(ev) {
 	    }
 	});
     }
-    } else {
     console.log(vrijeme + ev);
-    }
 });
 
 ws.start();
