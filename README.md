@@ -16,6 +16,8 @@ Termux app and Termux-api add-on
 
 Node.js
 
+Access to our notifications server (use VPN if needed)
+
 ## Installing
 
 Install Termux and Termux-api (no root required)
@@ -26,6 +28,7 @@ Open Termux session and run following commands:
     termux-wake-lock
     pkg install nodejs
     npm install --save universal-reconnecting-websocket
+    git clone https://github.com/silvije2/noc_notifications
 ```
 
 ## Running
@@ -33,6 +36,7 @@ Open Termux session and run following commands:
 To run a noc_notifications client type following command:
 
 ```
+    cd noc_notifications
     node noc_notifications.js
 ```
 
