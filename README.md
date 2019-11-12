@@ -3,7 +3,7 @@
 Termux, Node.js client for notifications server in our NOC
 
 I wanted to replace (or provide backup for) SMS notifications for our NOC2 personel
-when on duty. That could be done more than few ways and this is my try (I'm not a programmer
+when on duty. That could be done more than a few ways and this is my try (I'm not a programmer
 and this is my first GitHub upload ever).
 
 Noc_notifications client connects to our server and pops-up a Termux notification when needed.
