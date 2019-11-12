@@ -37,28 +37,33 @@ ws.on('state', (ss) => {
     }
     }
 });
-ws.on('message', function message(ev) {
+ws.on('message', function message(msg) {
     var vrijeme = timestamp();
+    var cleanmsg;
     var nmsg;
     var say;
     var cmd;
-    if (ev.includes('DDOS')){
+    cleanmsg = msg.replace(/<\/?[^>]+(>|$)/g, "");
+
+    if (cleanmsg.includes('DDOS')){
 	nmsg = "DDOS napad";
 	say = "denial of service";
+        console.log(cleanmsg);
     }
-    else if (ev.includes('Portscan')){
+    else if (cleanmsg.includes('Portscan')){
 	nmsg = "Portscan napad";
 	say = ""; //this is too frequent so do not say anything :-)
+        console.log(cleanmsg);
     }
-    else if (ev.includes('Zenoss')){
-	var clean = ev.replace(/<\/?[^>]+(>|$)/g, "");
-	nmsg = clean.split(/-(.+)/)[1] + "Zenos critical ";
+    else if (cleanmsg.includes('Zenoss')){
+	nmsg = cleanmsg.split(/-(.+)/)[1] + " Zenos critical ";
 	say = "Zenoss critical";
+        console.log(cleanmsg);
     }
     else {
 	nmsg = "Unknown";
 	say = "";
-        console.log(vrijeme + ev);
+        console.log(cleanmsg);
     }
     const { exec } = require('child_process');
     cmd = "echo " + vrijeme + nmsg + " | termux-notification --group NOC -t NOC";
