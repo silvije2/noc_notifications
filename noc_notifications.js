@@ -58,6 +58,7 @@ ws.on('message', function message(ev) {
     else {
 	nmsg = "Unknown";
 	say = "";
+        console.log(vrijeme + ev);
     }
     const { exec } = require('child_process');
     cmd = "echo " + vrijeme + nmsg + " | termux-notification --group NOC -t NOC";
@@ -81,7 +82,6 @@ ws.on('message', function message(ev) {
 	    }
 	});
     }
-    console.log(vrijeme + ev);
 });
 
 ws.start();
