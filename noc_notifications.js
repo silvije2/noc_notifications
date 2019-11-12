@@ -52,7 +52,7 @@ ws.on('message', function message(ev) {
     }
     else if (ev.includes('Zenoss')){
 	var clean = ev.replace(/<\/?[^>]+(>|$)/g, "");
-	nmsg = "Zenos critical " + clean.split(/-(.+)/)[1];
+	nmsg = clean.split(/-(.+)/)[1] + "Zenos critical ";
 	say = "Zenoss critical";
     }
     else {
