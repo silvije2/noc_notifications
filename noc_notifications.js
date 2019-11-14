@@ -77,15 +77,17 @@ ws.on('message', function message(msg) {
     });
 
     if (say != "") {
-	cmd = "termux-tts-speak -s NOTIFICATION '" + say + "'";
-	exec(cmd, (err, stdout, stderr) => {
-	    if (err) {
-	    //console.error(err)
-	    } else {
-	    //console.log(`stdout: ${stdout}`);
-	    //console.log(`stderr: ${stderr}`);
-	    }
-	});
+	setTimeout(function(){
+	    cmd = "termux-tts-speak -s NOTIFICATION '" + say + "'";
+	    exec(cmd, (err, stdout, stderr) => {
+		if (err) {
+		//console.error(err)
+		} else {
+	    	//console.log(`stdout: ${stdout}`);
+	    	//console.log(`stderr: ${stderr}`);
+	    	}
+	    });
+	},2000);
     }
 });
 
