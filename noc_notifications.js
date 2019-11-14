@@ -31,9 +31,11 @@ ws.on('state', (ss) => {
         exec(cmd, (err, stdout, stderr) => {
         });
 
-        cmd = "termux-tts-speak -s NOTIFICATION 'disconnected'";
-        exec(cmd, (err, stdout, stderr) => {
-        });
+	setTimeout(function(){
+	     cmd = "termux-tts-speak -s NOTIFICATION 'disconnected'";
+             exec(cmd, (err, stdout, stderr) => {
+             });
+	},2000);
     }
     }
 });
