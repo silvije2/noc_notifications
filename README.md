@@ -29,6 +29,7 @@ Open Termux session and run following commands:
 ```
     termux-wake-lock
     pkg install nodejs
+    pkg install termux-api
     npm install --save universal-reconnecting-websocket
     git clone https://github.com/silvije2/noc_notifications
 ```
